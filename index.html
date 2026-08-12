@@ -128,6 +128,121 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
   0%,100%{filter:brightness(1);box-shadow:0 0 7px rgba(33,213,139,.14),0 8px 20px rgba(33,213,139,.08)}
   50%{filter:brightness(1.035);box-shadow:0 0 12px rgba(33,213,139,.22),0 10px 24px rgba(33,213,139,.11)}
 }
+
+/* ===== SUNNY HUB PROFESSIONAL POLISH ===== */
+:root{
+  --ease:cubic-bezier(.22,1,.36,1);
+  --glass:rgba(255,255,255,.055);
+}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  background:
+    radial-gradient(circle at 12% -5%,rgba(79,124,255,.18),transparent 30%),
+    radial-gradient(circle at 105% 15%,rgba(138,92,255,.16),transparent 28%),
+    var(--bg);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+             linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+header{transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+.nav{max-width:1180px}
+.brand-logo{transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.brand:hover .brand-logo{transform:rotate(-7deg) scale(1.06);box-shadow:0 12px 32px rgba(79,124,255,.38)}
+.round{transition:transform .25s var(--ease),border-color .25s,background .25s}
+.round:active{transform:scale(.94)}
+.hero{padding-top:50px}
+.hero-main{
+  box-shadow:0 28px 90px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.12);
+}
+.hero-main:before{animation:float 10s ease-in-out infinite alternate}
+.hero-main:after{animation:float2 12s ease-in-out infinite alternate}
+@keyframes float2{to{transform:translate(25px,-18px) scale(1.1)}}
+.hero-side{
+  box-shadow:0 28px 75px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.06);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.hero-side:hover{transform:translateY(-5px);box-shadow:0 34px 90px rgba(0,0,0,.25)}
+.tabs{position:sticky;top:72px;z-index:40;padding:7px;margin:0 -7px 22px;background:rgba(7,11,24,.62);backdrop-filter:blur(18px);border-radius:20px}
+.light .tabs{background:rgba(244,247,251,.72)}
+.tab{transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s}
+.tab:hover{transform:translateY(-2px)}
+.tab.active{box-shadow:0 12px 30px rgba(79,124,255,.25)}
+.category-section{animation:sectionReveal .55s var(--ease) both}
+@keyframes sectionReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.card{
+  position:relative;overflow:hidden;
+  box-shadow:0 18px 50px rgba(0,0,0,.14),inset 0 1px rgba(255,255,255,.035);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s;
+}
+.card:before{
+  content:"";position:absolute;left:18px;right:18px;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+  opacity:0;transition:opacity .35s;
+}
+.card:hover{transform:translateY(-8px);border-color:rgba(120,150,255,.22);box-shadow:0 28px 75px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.07)}
+.card:hover:before{opacity:1}
+.card-top{transition:transform .4s var(--ease)}
+.card:hover .card-top{transform:translateX(3px)}
+.preview{box-shadow:inset 0 1px rgba(255,255,255,.12);transition:transform .45s var(--ease),filter .45s}
+.card:hover .preview{transform:scale(1.012);filter:saturate(1.05)}
+.action{transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+.action:hover{box-shadow:0 10px 25px rgba(0,0,0,.16)}
+.action.primary{box-shadow:0 8px 25px rgba(33,213,139,.13)}
+.detail{box-shadow:0 30px 90px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.05)}
+.detail-banner{box-shadow:inset 0 1px rgba(255,255,255,.12)}
+.back{transition:transform .3s var(--ease),background .3s}
+.back:hover{transform:translateX(-3px)}
+.download{transition:transform .35s var(--ease),box-shadow .35s var(--ease),filter .35s}
+.download:hover{filter:brightness(1.06)}
+.search{transition:border-color .3s,box-shadow .3s,transform .3s}
+.search:focus-within{border-color:rgba(79,124,255,.45);box-shadow:0 0 0 4px rgba(79,124,255,.08);transform:translateY(-1px)}
+.footer{margin-top:60px}
+@media(max-width:780px){
+  .hero{padding-top:30px}
+  .tabs{top:64px}
+  .card:hover{transform:translateY(-4px)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  body:before,.hero-main:before,.hero-main:after{animation:none!important}
+}
+
+
+.scroll-progress{position:fixed;left:0;top:0;height:3px;width:0;z-index:10000;background:linear-gradient(90deg,#4f7cff,#33d6ff,#8a5cff);box-shadow:0 0 12px rgba(79,124,255,.5);transition:width .08s linear}
+
+
+/* ===== PREMIUM REQUEST CENTER ===== */
+.request-section{padding:42px 0 8px;scroll-margin-top:90px}
+.request-card{
+ position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;
+ min-height:260px;padding:34px 38px;border:1px solid rgba(255,255,255,.10);border-radius:30px;
+ background:radial-gradient(circle at 90% 15%,rgba(51,214,255,.14),transparent 28%),
+ radial-gradient(circle at 10% 100%,rgba(138,92,255,.15),transparent 35%),
+ linear-gradient(135deg,#0e1832,#111d3c 55%,#151d39);
+ box-shadow:0 25px 80px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.08);
+}
+.request-card:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.035) 50%,transparent 75%);transform:translateX(-80%);animation:requestSweep 7s ease-in-out infinite}
+@keyframes requestSweep{0%,55%{transform:translateX(-80%)}75%,100%{transform:translateX(80%)}}
+.request-content{position:relative;z-index:2;max-width:690px}
+.request-badge{display:inline-flex;padding:7px 11px;border-radius:99px;background:rgba(79,124,255,.12);border:1px solid rgba(79,124,255,.2);color:#9bb5ff;font-size:10px;font-weight:950;letter-spacing:1.5px}
+.request-content h2{font-size:clamp(28px,4vw,43px);letter-spacing:-1.5px;margin:16px 0 9px}
+.request-content p{margin:0 0 22px;color:var(--muted);line-height:1.75;font-size:13px;max-width:610px}
+.request-btn{position:relative;display:flex;align-items:center;gap:13px;width:min(390px,100%);padding:14px 16px;border-radius:17px;text-decoration:none;color:#fff;background:linear-gradient(135deg,#138f68,#21d58b,#2de5a0);box-shadow:0 12px 30px rgba(33,213,139,.16);transition:transform .35s var(--ease),box-shadow .35s var(--ease),filter .35s;overflow:hidden}
+.request-btn:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.38) 50%,transparent 75%);transform:translateX(-120%);animation:requestShine 3.2s ease-in-out infinite}
+@keyframes requestShine{0%,45%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}
+.request-btn:hover{transform:translateY(-4px);filter:brightness(1.04);box-shadow:0 18px 40px rgba(33,213,139,.24)}
+.request-icon{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.16);font-size:19px;z-index:1}
+.request-btn b,.request-btn small{display:block;z-index:1}.request-btn b{font-size:13px}.request-btn small{font-size:10px;opacity:.78;margin-top:2px}.request-arrow{margin-left:auto;font-size:21px;font-weight:900;z-index:1}
+.request-orb{position:absolute;right:45px;bottom:-65px;width:205px;height:205px;border-radius:50%;display:grid;place-items:center;font-size:92px;font-weight:1000;color:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.06);box-shadow:inset 0 0 60px rgba(79,124,255,.07);animation:requestFloat 6s ease-in-out infinite alternate}
+@keyframes requestFloat{to{transform:translateY(-15px) rotate(5deg)}}
+.light .request-card{background:linear-gradient(135deg,#fff,#f0f5ff);border-color:#e2e8f5;box-shadow:0 25px 70px rgba(16,24,40,.10)}
+.light .request-content p{color:#667085}
+@media(max-width:650px){.request-card{padding:28px 22px;min-height:0}.request-orb{right:-45px;bottom:-70px;width:170px;height:170px;font-size:75px}.request-content{max-width:100%}}
+
 </style>
 
 <script>
@@ -150,6 +265,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
 </script>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- PREMIUM OPENING -->
 <div id="intro">
@@ -169,6 +285,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
  <button onclick="jump('apps');closeMenu()">▣ <span>Apps</span></button>
  <button onclick="jump('notes');closeMenu()">▤ <span>Notes</span></button>
  <button onclick="jump('links');closeMenu()">↗ <span>Important Links</span></button>
+  <a class="menu-request-link" href="https://wa.me/917808245695?text=Hi%20Sunny%20Hub%2C%20mujhe%20ek%20PDF%2FNotes%20chahiye." target="_blank" rel="noopener">✦ <span>Request a PDF</span></a>
  <button onclick="toggleTheme();closeMenu()">◐ <span>Dark / Light Mode</span></button>
  <a href="https://wa.me/917808245695" target="_blank" rel="noopener">◉ <span>WhatsApp Support</span></a>
  <div class="drawer-note">Sunny Hub ko mobile-first rakha gaya hai — fast navigation, app details aur direct download access ke saath.</div>
@@ -194,11 +311,12 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
     <div class="hero-actions">
       <button class="btn primary" onclick="jump('apps')">Explore Apps →</button>
       <button class="btn glass" onclick="jump('notes')">Open Notes</button>
+      <button type="button" class="btn glass" data-request-pdf onclick="window.open('https://wa.me/917808245695?text=Hi%20Sunny%20Hub%2C%20mujhe%20ek%20PDF%2FNotes%20chahiye.', '_blank')">✦ Request PDF</button>
     </div>
    </div>
    <aside class="hero-side">
     <div class="profile"><div class="avatar">S</div><div><b>Sunny Hub</b><span>Personal Resource Center</span></div></div>
-    <div class="mini-grid"><div class="mini"><b>03</b><span>Categories</span></div><div class="mini"><b>24/7</b><span>Access</span></div><div class="mini"><b>Fast</b><span>Navigation</span></div><div class="mini"><b>Pro</b><span>Design</span></div></div>
+    <div class="mini-grid"><div class="mini"><b>04</b><span>Sections</span></div><div class="mini"><b>24/7</b><span>Access</span></div><div class="mini"><b>Fast</b><span>Navigation</span></div><div class="mini"><b>Pro</b><span>Design</span></div></div>
     <div class="quote">“Simple enough to use. Premium enough to remember.”</div>
    </aside>
   </div>
@@ -243,21 +361,25 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
 
  </div><div class="category-section" data-section="notes"><div class="section-head" id="notes"><div><h2>Notes Library</h2><p>Class 8 Science • quick revision</p></div></div>
  <div class="grid">
-  <article class="card searchable" data-cat="notes" data-title="class 8 science chapter 2 सूक्ष्मजीव मित्र एवं शत्रु">
+<article class="card searchable" data-cat="notes" data-title="class 8 science chapter 3 कोयला और पेट्रोलियम">
+   <div class="card-top"><div class="app-icon blue">⛽</div><div><h3>Class 8 Science — कोयला और पेट्रोलियम</h3><div class="sub">Chapter 3 • Full Notes</div></div></div>
+   <div class="preview pblue"><div><div class="small">SCIENCE • CHAPTER 3</div><div class="big">कोयला<br>और पेट्रोलियम</div></div><div style="font-size:42px">⛽</div></div>
+   <div class="tags"><span class="tag">Chapter 3</span><span class="tag ok">Free</span></div><p class="desc">कोयला और पेट्रोलियम — revision friendly notes.</p>
+   <div class="actions"><button class="action primary" onclick="openDetail('ch3coal')">Download</button></div>
+  </article>
+<article class="card searchable" data-cat="notes" data-title="class 8 science chapter 2 सूक्ष्मजीव मित्र एवं शत्रु">
    <div class="card-top"><div class="app-icon blue">🦠</div><div><h3>Class 8 Science — सूक्ष्मजीव</h3><div class="sub">Chapter 2 • Full Notes</div></div></div>
    <div class="preview pblue"><div><div class="small">SCIENCE • CHAPTER 2</div><div class="big">मित्र<br>एवं शत्रु</div></div><div style="font-size:42px">🧫</div></div>
    <div class="tags"><span class="tag">Chapter 2</span><span class="tag ok">Free</span></div><p class="desc">Important topics aur definitions saral Hindi mein.</p>
    <div class="actions"><button class="action primary" onclick="openDetail('ch2')">Download</button></div>
   </article>
-  <article class="card searchable" data-cat="notes" data-title="class 8 science chapter 3 संश्लेषित रेशे और प्लास्टिक">
+<article class="card searchable" data-cat="notes" data-title="class 8 science chapter 3 संश्लेषित रेशे और प्लास्टिक">
    <div class="card-top"><div class="app-icon blue">🧵</div><div><h3>Class 8 Science — संश्लेषित रेशे और प्लास्टिक</h3><div class="sub">Chapter 3 • Full Notes</div></div></div>
    <div class="preview pblue"><div><div class="small">SCIENCE • CHAPTER 3</div><div class="big">संश्लेषित<br>रेशे और प्लास्टिक</div></div><div style="font-size:42px">🧵</div></div>
    <div class="tags"><span class="tag">Chapter 3</span><span class="tag ok">Free</span></div><p class="desc">संश्लेषित रेशे और प्लास्टिक — revision friendly notes.</p>
    <div class="actions"><button class="action primary" onclick="openDetail('ch3')">Download</button></div>
-  </article>
- </div>
-
- </div><div class="category-section" data-section="links"><div class="section-head" id="links"><div><h2>Important Links</h2><p>Keep your frequently used portals here</p></div></div>
+   </article>
+  </div><div class="category-section" data-section="links"><div class="section-head" id="links"><div><h2>Important Links</h2><p>Keep your frequently used portals here</p></div></div>
  <div class="grid">
   <article class="card searchable" data-cat="links" data-title="lnmu 2nd semester student login portal">
    <div class="card-top"><div class="app-icon green">↗</div><div><h3>LNMU 2nd Semester</h3><div class="sub">Student Portal</div></div></div>
@@ -266,7 +388,24 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
    <div class="actions"><button class="action primary" onclick="toast('Official link yahan connect kar sakte ho.')">Download</button></div>
   </article>
  </div>
- <footer class="footer">© 2026 Sunny Hub • Premium Edition • Built for mobile</footer>
+ 
+<section class="request-section" id="request">
+  <div class="request-card">
+    <div class="request-content">
+      <span class="request-badge">✦ REQUEST CENTER</span>
+      <h2>Need a PDF or Notes?</h2>
+      <p>Koi particular PDF, chapter notes ya study material chahiye? Request bhejo aur WhatsApp par message karo.</p>
+      <a class="request-btn" href="https://wa.me/917808245695?text=Hi%20Sunny%20Hub%2C%20mujhe%20ek%20PDF%2FNotes%20chahiye." target="_blank" rel="noopener">
+        <span class="request-icon">💬</span>
+        <span><b>Send a Request</b><small>WhatsApp par message karo</small></span>
+        <span class="request-arrow">→</span>
+      </a>
+    </div>
+    <div class="request-orb">?</div>
+  </div>
+</section>
+
+<footer class="footer">© 2026 Sunny Hub • Premium Edition • Built for mobile</footer>
 </section>
 
 <!-- DETAILS -->
@@ -286,6 +425,8 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
 
 <section id="ch2Page" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner notes-banner"><div><span class="eyebrow">SUNNY • NOTES</span><h2>सूक्ष्मजीव — मित्र एवं शत्रु</h2><p>Class 8 Science • Chapter 2</p></div><div class="detail-icon" style="color:#315ee9">🦠</div></div><div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>2</span></div></div><p class="detail-text">सूक्ष्मजीव — मित्र एवं शत्रु के PDF notes.</p><div class="download-box"><h3>⬇ Download Notes</h3><p>PDF download ke liye supplied MediaFire link.</p><a class="download" href="https://www.mediafire.com/file/wl3j1127jv894qy/Sukshmjeev_Mitra_Notes.pdf/file" target="_blank" rel="noopener">Download PDF</a></div></div></section>
 
+<section id="ch3coalPage" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner notes-banner"><div><span class="eyebrow">SUNNY • NOTES</span><h2>कोयला और पेट्रोलियम</h2><p>Class 8 Science • Chapter 3</p></div><div class="detail-icon" style="color:#315ee9">⛽</div></div><div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>3</span></div></div><p class="detail-text">कोयला और पेट्रोलियम के PDF notes.</p><div class="download-box"><h3>⬇ Download Notes</h3><p>PDF notes ke liye supplied MediaFire link.</p><a class="download" href="https://www.mediafire.com/file/xxlrxv049p6apwy/Koyla_Aur_Petroleum_Notes.pdf/file" target="_blank" rel="noopener">Download PDF</a></div></div></section>
+
 <section id="ch3Page" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner notes-banner"><div><span class="eyebrow">SUNNY • NOTES</span><h2>संश्लेषित रेशे और प्लास्टिक</h2><p>Class 8 Science • Chapter 3</p></div><div class="detail-icon" style="color:#315ee9">🧵</div></div><div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>3</span></div></div><p class="detail-text">संश्लेषित रेशे और प्लास्टिक के PDF notes.</p><div class="download-box"><h3>⬇ Download Notes</h3><p>PDF download ke liye supplied MediaFire link.</p><a class="download" href="https://www.mediafire.com/file/opmq5d6vpvmaaxl/Sanshleshit_Reshe_Aur_Plastic_Notes.pdf/file" target="_blank" rel="noopener">Download PDF</a></div></div></section>
 
 </main>
@@ -299,8 +440,8 @@ function closeMenu(){document.getElementById('drawer').classList.remove('show');
 function toggleTheme(){document.body.classList.toggle('light');localStorage.setItem('sunnyTheme',document.body.classList.contains('light')?'light':'dark')}
 if(localStorage.getItem('sunnyTheme')==='light')document.body.classList.add('light');
 
-const pages=['homePage','youtubePage','capcutPage','reminiPage','ch2Page','ch3Page'];
-const detailMap={youtube:'youtubePage',capcut:'capcutPage',remini:'reminiPage',ch2:'ch2Page',ch3:'ch3Page'};
+const pages=['homePage','youtubePage','capcutPage','reminiPage','ch2Page','ch3Page','ch3coalPage'];
+const detailMap={youtube:'youtubePage',capcut:'capcutPage',remini:'reminiPage',ch2:'ch2Page',ch3:'ch3Page',ch3coal:'ch3coalPage'};
 function showPage(id,scroll=true){
   pages.forEach(x=>document.getElementById(x).classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -350,6 +491,30 @@ function filterCards(){
 }
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),2600)}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+
+const scrollProgress=document.getElementById('scrollProgress');
+function updateScrollProgress(){
+  const doc=document.documentElement;
+  const max=doc.scrollHeight-doc.clientHeight;
+  scrollProgress.style.width=(max>0?(window.scrollY/max)*100:0)+'%';
+}
+window.addEventListener('scroll',updateScrollProgress,{passive:true});
+window.addEventListener('resize',updateScrollProgress);
+updateScrollProgress();
+
 </script>
+
+<script>
+(function(){
+  const requestUrl = "https://wa.me/917808245695?text=Hi%20Sunny%20Hub%2C%20mujhe%20ek%20PDF%2FNotes%20chahiye.";
+  document.addEventListener("click", function(e){
+    const el = e.target.closest("[data-request-pdf]");
+    if(!el) return;
+    e.preventDefault();
+    window.open(requestUrl, "_blank");
+  });
+})();
+</script>
+
 </body>
 </html>
