@@ -19,7 +19,7 @@ body.light{--bg:#f4f7fb;--panel:#fff;--panel2:#eef3ff;--text:#101828;--muted:#66
 button,input{font:inherit}a{text-decoration:none;color:inherit}.hidden{display:none!important}
 .container{width:min(1180px,100%);margin:auto;padding:0 18px}
 
-/* INTRO / LOADER */
+/* INTRO */
 #intro{position:fixed;inset:0;z-index:9999;background:#050816;display:grid;place-items:center;overflow:hidden}
 .intro-glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(79,124,255,.28),transparent 65%);filter:blur(12px);animation:glow 2.5s ease-in-out infinite alternate}
 .intro-logo{position:relative;text-align:center;animation:introIn 1.1s cubic-bezier(.16,1,.3,1) both}
@@ -41,12 +41,12 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
 .brand small{display:block;font-size:8px;letter-spacing:2px;color:var(--muted);margin-top:2px}
 .nav-actions{display:flex;gap:8px}.round{width:42px;height:42px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:13px;cursor:pointer;transition:.25s}.round:hover{transform:translateY(-2px);border-color:rgba(79,124,255,.5)}
 
-/* SIDE MENU */
+/* DRAWER */
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:180;opacity:0;visibility:hidden;transition:.3s}.scrim.show{opacity:1;visibility:visible}
 .drawer{position:fixed;z-index:200;left:0;top:0;bottom:0;width:min(350px,88vw);background:linear-gradient(180deg,#0b1122,#080d19);border-right:1px solid rgba(255,255,255,.08);transform:translateX(-105%);transition:.4s cubic-bezier(.16,1,.3,1);padding:22px;box-shadow:30px 0 80px rgba(0,0,0,.35)}
 .drawer.show{transform:none}.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}.drawer-brand{font-weight:1000;font-size:20px}.drawer-brand span{color:#668cff}.drawer a,.drawer button{display:flex;width:100%;align-items:center;gap:13px;padding:15px;border:0;border-radius:15px;background:transparent;color:#dce5ff;text-align:left;cursor:pointer;margin:4px 0;font-weight:750}.drawer a:hover,.drawer button:hover{background:rgba(255,255,255,.06)}.drawer .active{background:linear-gradient(90deg,rgba(79,124,255,.2),transparent);color:#fff}.drawer-note{margin-top:25px;padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.03);font-size:12px;color:#8795b3;line-height:1.6}
 
-/* HOME HERO */
+/* HERO */
 .hero{padding:42px 0 18px}.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
 .hero-main{min-height:390px;border:1px solid rgba(255,255,255,.09);border-radius:34px;padding:38px;position:relative;overflow:hidden;
  background:linear-gradient(135deg,#101e48 0%,#274cc2 52%,#6b45d9 100%);box-shadow:var(--shadow);isolation:isolate}
@@ -58,31 +58,51 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
 .hero-side{border:1px solid var(--line);border-radius:34px;background:var(--panel);padding:23px;box-shadow:var(--shadow)}
 .profile{display:flex;gap:13px;align-items:center}.avatar{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#4f7cff,#8a5cff);font-size:25px;font-weight:1000}.profile b{font-size:17px}.profile span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:22px}.mini{padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--panel2)}.mini b{font-size:22px}.mini span{display:block;font-size:10px;color:var(--muted);margin-top:3px}.quote{margin-top:10px;padding:15px;border-radius:18px;background:linear-gradient(135deg,rgba(79,124,255,.12),rgba(138,92,255,.08));font-size:12px;color:var(--muted);line-height:1.6}
 
-/* CONTROLS */
+/* TOOLBAR */
 .toolbar{display:flex;gap:10px;margin:22px 0}.search{flex:1;display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid var(--line);background:var(--panel);border-radius:16px}.search input{width:100%;border:0;outline:0;background:transparent;color:var(--text)}.filter{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:16px;padding:0 13px;outline:0}
 .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:25px}.tab{padding:14px;border-radius:16px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-weight:900;cursor:pointer}.tab.active{background:linear-gradient(135deg,#4f7cff,#5c55e8);color:#fff;border-color:transparent;box-shadow:0 12px 30px rgba(79,124,255,.2)}
 
-/* SECTION/CARDS */
+/* SECTION */
 .section-head{display:flex;align-items:end;justify-content:space-between;margin:28px 0 13px}.section-head h2{margin:0;font-size:23px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:25px;padding:17px;box-shadow:0 15px 45px rgba(0,0,0,.12);transition:.28s;animation:cardIn .65s both}.card:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.22)}.card:nth-child(2){animation-delay:.05s}.card:nth-child(3){animation-delay:.1s}.card:nth-child(4){animation-delay:.15s}.card:nth-child(5){animation-delay:.2s}.card:nth-child(6){animation-delay:.25s}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:25px;padding:17px;box-shadow:0 15px 45px rgba(0,0,0,.12);transition:.28s;animation:cardIn .65s both}.card:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.22)}
 @keyframes cardIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .card-top{display:flex;align-items:center;gap:12px}.app-icon{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;font-size:26px;font-weight:1000;box-shadow:inset 0 1px rgba(255,255,255,.2);transition:.3s}.card:hover .app-icon{transform:rotate(-4deg) scale(1.06)}.blue{background:linear-gradient(135deg,#2f6fff,#564de8)}.red{background:linear-gradient(135deg,#ff1744,#b90031)}.green{background:linear-gradient(135deg,#10b981,#047857)}.orange{background:linear-gradient(135deg,#f59e0b,#ef4444)}.card h3{margin:0;font-size:16px}.sub{font-size:11px;color:var(--muted);margin-top:3px}
 .preview{height:170px;margin:15px 0;border-radius:20px;padding:21px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}.preview:after{content:"";position:absolute;inset:-80% -40%;background:linear-gradient(100deg,transparent 45%,rgba(255,255,255,.16) 50%,transparent 55%);transform:translateX(-35%) rotate(8deg);transition:.9s}.card:hover .preview:after{transform:translateX(35%) rotate(8deg)}
 .pblue{background:linear-gradient(135deg,#12255d,#315ee9,#32b6ff)}.pred{background:linear-gradient(135deg,#47000f,#e30035,#ff5271)}.pgreen{background:linear-gradient(135deg,#064e3b,#059669,#2dd4bf)}.porange{background:linear-gradient(135deg,#6b2d00,#e85d04,#ffb703)}
-.preview .small{font-size:10px;font-weight:900;letter-spacing:1.3px;opacity:.75}.preview .big{font-size:27px;font-weight:1000;line-height:1.03;margin-top:7px}.play{width:88px;height:62px;border-radius:19px;background:#fff;color:#e0002b;display:grid;place-items:center;font-size:25px;box-shadow:0 14px 35px rgba(0,0,0,.15);z-index:2;transition:.3s}.card:hover .play{transform:scale(1.08) rotate(-2deg)}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px}.tag{font-size:10px;font-weight:900;padding:6px 9px;border-radius:99px;background:var(--panel2);color:#6b7bb5}.tag.ok{background:rgba(33,213,139,.12);color:#22d391}.desc{font-size:12px;color:var(--muted);line-height:1.65;margin:0 0 13px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.action{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:13px;padding:11px;font-weight:850;text-align:center;cursor:pointer;transition:.2s}.action:hover{transform:translateY(-2px)}.action.primary{background:var(--blue);color:#fff;border-color:transparent}
+.preview .small{font-size:10px;font-weight:900;letter-spacing:1.3px;opacity:.75}.preview .big{font-size:27px;font-weight:1000;line-height:1.03;margin-top:7px}.play{width:88px;height:62px;border-radius:19px;background:#fff;color:#e0002b;display:grid;place-items:center;font-size:25px;box-shadow:0 14px 35px rgba(0,0,0,.15);z-index:2}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px}.tag{font-size:10px;font-weight:900;padding:6px 9px;border-radius:99px;background:var(--panel2);color:#6b7bb5}.tag.ok{background:rgba(33,213,139,.12);color:#22d391}.desc{font-size:12px;color:var(--muted);line-height:1.65;margin:0 0 13px}.actions{display:grid;grid-template-columns:1fr;gap:8px}.action{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:13px;padding:11px;font-weight:850;text-align:center;cursor:pointer;transition:.2s}.action:hover{transform:translateY(-2px)}.action.primary{background:var(--blue);color:#fff;border-color:transparent}
+
+/* CLASS SELECTION */
+.class-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.class-card{position:relative;overflow:hidden;padding:26px 22px;border-radius:26px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;text-align:left;transition:.4s cubic-bezier(.22,1,.36,1);min-height:200px;display:flex;flex-direction:column;justify-content:space-between;font-family:inherit}
+.class-card:hover{transform:translateY(-8px);box-shadow:0 28px 70px rgba(0,0,0,.28);border-color:rgba(120,150,255,.28)}
+.class-card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 55%,rgba(255,255,255,.06));pointer-events:none}
+.class-num{font-size:72px;font-weight:1000;line-height:.9;letter-spacing:-4px}
+.class-card.c8 .class-num{background:linear-gradient(135deg,#4f7cff,#8a5cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.class-card.c9 .class-num{background:linear-gradient(135deg,#21d58b,#33d6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.class-card.c10 .class-num{background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;background-clip:text;color:transparent}
+.class-name{font-size:15px;font-weight:950;margin-top:10px;letter-spacing:.3px}
+.class-sub{font-size:11px;color:var(--muted);margin-top:3px;font-weight:600}
+.class-card .arrow{position:absolute;right:20px;bottom:20px;width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.06);font-size:16px;transition:.4s;border:1px solid rgba(255,255,255,.06)}
+.class-card:hover .arrow{background:linear-gradient(135deg,#4f7cff,#8a5cff);transform:translateX(5px);border-color:transparent}
+.class-card.c9:hover .arrow{background:linear-gradient(135deg,#21d58b,#33d6ff)}
+.class-card.c10:hover .arrow{background:linear-gradient(135deg,#f59e0b,#ef4444)}
+.class-card .badge-soon{position:absolute;top:18px;right:18px;font-size:9px;font-weight:900;padding:5px 9px;border-radius:99px;background:rgba(245,158,11,.14);color:#f59e0b;letter-spacing:.5px;border:1px solid rgba(245,158,11,.2)}
 
 /* DETAIL PAGES */
 .page{display:none;padding:32px 0 90px;animation:pageIn .45s ease both}.page.active{display:block}@keyframes pageIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
-.back{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:13px;padding:11px 14px;font-weight:850;cursor:pointer;margin-bottom:14px}
+.back{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:13px;padding:11px 14px;font-weight:850;cursor:pointer;margin-bottom:14px}.back:hover{transform:translateX(-3px);transition:.3s}
 .detail{max-width:850px;margin:auto;background:var(--panel);border:1px solid var(--line);border-radius:30px;padding:19px;box-shadow:var(--shadow)}
 .detail-banner{border-radius:24px;padding:27px;min-height:220px;display:flex;align-items:center;justify-content:space-between;gap:18px;color:#fff;overflow:hidden;position:relative}.detail-banner:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-110px;top:-150px;background:rgba(255,255,255,.1);animation:float 7s infinite alternate}.youtube-banner{background:linear-gradient(135deg,#3b0010,#e30035,#ff5271)}.notes-banner{background:linear-gradient(135deg,#0e245f,#315ee9,#2cb7ff)}.app-banner{background:linear-gradient(135deg,#103c34,#059669,#2dd4bf)}
 .detail-banner h2{font-size:37px;line-height:.98;margin:10px 0}.detail-banner p{color:rgba(255,255,255,.8);margin:0}.detail-icon{width:100px;height:100px;border-radius:28px;background:#fff;color:#e0002b;display:grid;place-items:center;font-size:40px;z-index:2;box-shadow:0 18px 50px rgba(0,0,0,.18)}
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:15px 0}.info{padding:14px;border:1px solid var(--line);border-radius:16px}.info b{display:block;font-size:13px}.info span{font-size:10px;color:var(--muted)}.detail-text{font-size:13px;line-height:1.8;color:var(--muted)}.download-box{padding:18px;border-radius:20px;background:rgba(33,213,139,.07);border:1px solid rgba(33,213,139,.2);margin-top:15px}.download-box h3{margin:0 0 6px;color:#21d58b}.download-box p{font-size:11px;color:var(--muted);line-height:1.6}.download{position:relative;display:flex;justify-content:center;align-items:center;padding:15px 18px;border-radius:16px;background:linear-gradient(135deg,#16b979,#21d58b,#36e6a0);background-size:200% 200%;color:#fff;font-weight:950;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 0 18px rgba(33,213,139,.35),0 12px 35px rgba(33,213,139,.25);transition:.25s;animation:downloadGlow 2s ease-in-out infinite,downloadGradient 4s ease infinite}.download:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.48) 50%,transparent 75%);transform:translateX(-120%);animation:downloadShine 2.7s ease-in-out infinite}.download span,.download{isolation:isolate}.download:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 0 0 1px rgba(255,255,255,.18) inset,0 0 30px rgba(33,213,139,.55),0 18px 45px rgba(33,213,139,.32)}@keyframes downloadGlow{0%,100%{filter:brightness(1);box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 0 14px rgba(33,213,139,.3),0 12px 30px rgba(33,213,139,.2)}50%{filter:brightness(1.12);box-shadow:0 0 0 1px rgba(255,255,255,.18) inset,0 0 28px rgba(33,213,139,.62),0 16px 42px rgba(33,213,139,.3)}}@keyframes downloadShine{0%,45%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}@keyframes downloadGradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:15px 0}.info{padding:14px;border:1px solid var(--line);border-radius:16px}.info b{display:block;font-size:13px}.info span{font-size:10px;color:var(--muted)}.detail-text{font-size:13px;line-height:1.8;color:var(--muted)}.download-box{padding:18px;border-radius:20px;background:rgba(33,213,139,.07);border:1px solid rgba(33,213,139,.2);margin-top:15px}.download-box h3{margin:0 0 6px;color:#21d58b}.download-box p{font-size:11px;color:var(--muted);line-height:1.6}.download{position:relative;display:flex;justify-content:center;align-items:center;padding:15px 18px;border-radius:16px;background:linear-gradient(135deg,#16b979,#21d58b,#36e6a0);background-size:200% 200%;color:#fff;font-weight:950;overflow:hidden;box-shadow:0 0 8px rgba(33,213,139,.16),0 8px 22px rgba(33,213,139,.10);transition:.35s;animation:softDownloadGlow 3s ease-in-out infinite;isolation:isolate}.download:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.48) 50%,transparent 75%);transform:translateX(-120%);animation:downloadShine 2.7s ease-in-out infinite}.download:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 0 14px rgba(33,213,139,.24),0 12px 28px rgba(33,213,139,.14);filter:brightness(1.06)}
+@keyframes softDownloadGlow{0%,100%{filter:brightness(1);box-shadow:0 0 7px rgba(33,213,139,.14),0 8px 20px rgba(33,213,139,.08)}50%{filter:brightness(1.035);box-shadow:0 0 12px rgba(33,213,139,.22),0 10px 24px rgba(33,213,139,.11)}}
+@keyframes downloadShine{0%,45%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}
 .footer{padding:30px 0 40px;text-align:center;color:var(--muted);font-size:11px;border-top:1px solid var(--line);margin-top:40px}
 .toast{position:fixed;left:50%;bottom:24px;z-index:500;transform:translate(-50%,25px);opacity:0;pointer-events:none;background:#fff;color:#101828;border-radius:14px;padding:12px 16px;font-size:12px;font-weight:850;box-shadow:0 20px 50px rgba(0,0,0,.25);transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
 @keyframes float{to{transform:translate(-25px,20px) scale(1.08)}}
 @media(max-width:780px){.hero-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.hero-main{padding:28px;min-height:360px}.hero h1{font-size:45px}.info-grid{grid-template-columns:1fr 1fr}.toolbar{flex-wrap:wrap}.search{min-width:100%}.filter{height:44px;flex:1}}
+@media(max-width:600px){.class-grid{grid-template-columns:1fr}.class-card{min-height:auto;padding:22px 20px}.class-num{font-size:56px}}
 @media(max-width:440px){.container{padding:0 12px}.nav{height:64px}.brand small{font-size:7px}.tabs{gap:6px}.tab{font-size:12px;padding:12px 5px}.detail-banner{min-height:250px;flex-direction:column;align-items:flex-start}.detail-icon{width:76px;height:76px;font-size:30px}.detail-banner h2{font-size:31px}.info-grid{grid-template-columns:1fr 1fr}.actions{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
@@ -90,468 +110,28 @@ header{position:sticky;top:0;z-index:100;background:rgba(7,11,24,.72);backdrop-f
 .category-tabs .tab{min-height:54px;border-radius:15px}
 @media(max-width:520px){.category-tabs{grid-template-columns:repeat(2,1fr)}}
 
-.actions{grid-template-columns:1fr}
-.action.primary{
- position:relative;overflow:hidden;
- background:linear-gradient(135deg,#16b979,#21d58b,#36e6a0);
- background-size:200% 200%;border:0;color:#fff;
- box-shadow:0 0 14px rgba(33,213,139,.35),0 10px 28px rgba(33,213,139,.18);
- animation:actionGlow 2s ease-in-out infinite,actionGradient 4s ease infinite;
-}
-.action.primary:before{
- content:"";position:absolute;inset:0;
- background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.5) 50%,transparent 75%);
- transform:translateX(-120%);animation:actionShine 2.7s ease-in-out infinite;
-}
-.action.primary:hover{box-shadow:0 0 28px rgba(33,213,139,.6),0 16px 38px rgba(33,213,139,.28);transform:translateY(-3px) scale(1.01)}
-@keyframes actionGlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.13)}}
+.action.primary{position:relative;overflow:hidden;background:linear-gradient(135deg,#16b979,#21d58b,#36e6a0);background-size:200% 200%;border:0;color:#fff;animation:softDownloadGlow 3s ease-in-out infinite}
+.action.primary:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.5) 50%,transparent 75%);transform:translateX(-120%);animation:actionShine 2.7s ease-in-out infinite}
 @keyframes actionShine{0%,45%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}
-@keyframes actionGradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 
-/* Category-specific section visibility */
 .category-section{display:none}
 .category-section.active{display:block}
-.section-head{margin-top:28px}
-.section-head h2{margin-bottom:4px}
 
-/* Softer, premium download glow — less harsh on the eyes */
-.action.primary,
-.download{
-  box-shadow:0 0 8px rgba(33,213,139,.16),0 8px 22px rgba(33,213,139,.10);
-  animation:softDownloadGlow 3s ease-in-out infinite;
-}
-.action.primary:hover,
-.download:hover{
-  box-shadow:0 0 14px rgba(33,213,139,.24),0 12px 28px rgba(33,213,139,.14);
-}
-@keyframes softDownloadGlow{
-  0%,100%{filter:brightness(1);box-shadow:0 0 7px rgba(33,213,139,.14),0 8px 20px rgba(33,213,139,.08)}
-  50%{filter:brightness(1.035);box-shadow:0 0 12px rgba(33,213,139,.22),0 10px 24px rgba(33,213,139,.11)}
-}
-
-/* ===== SUNNY HUB PROFESSIONAL POLISH ===== */
-:root{
-  --ease:cubic-bezier(.22,1,.36,1);
-  --glass:rgba(255,255,255,.055);
-}
+:root{--ease:cubic-bezier(.22,1,.36,1)}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{
-  background:
-    radial-gradient(circle at 12% -5%,rgba(79,124,255,.18),transparent 30%),
-    radial-gradient(circle at 105% 15%,rgba(138,92,255,.16),transparent 28%),
-    var(--bg);
-}
-body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
-  background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-             linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-  background-size:42px 42px;
-  mask-image:linear-gradient(to bottom,black,transparent 80%);
-}
-header{transition:background .35s var(--ease),box-shadow .35s var(--ease)}
-.nav{max-width:1180px}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
 .brand-logo{transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.brand:hover .brand-logo{transform:rotate(-7deg) scale(1.06);box-shadow:0 12px 32px rgba(79,124,255,.38)}
-.round{transition:transform .25s var(--ease),border-color .25s,background .25s}
-.round:active{transform:scale(.94)}
-.hero{padding-top:50px}
-.hero-main{
-  box-shadow:0 28px 90px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.12);
-}
-.hero-main:before{animation:float 10s ease-in-out infinite alternate}
-.hero-main:after{animation:float2 12s ease-in-out infinite alternate}
-@keyframes float2{to{transform:translate(25px,-18px) scale(1.1)}}
-.hero-side{
-  box-shadow:0 28px 75px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.06);
-  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
-}
-.hero-side:hover{transform:translateY(-5px);box-shadow:0 34px 90px rgba(0,0,0,.25)}
+.brand:hover .brand-logo{transform:rotate(-7deg) scale(1.06)}
 .tabs{position:sticky;top:72px;z-index:40;padding:7px;margin:0 -7px 22px;background:rgba(7,11,24,.62);backdrop-filter:blur(18px);border-radius:20px}
 .light .tabs{background:rgba(244,247,251,.72)}
-.tab{transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s}
-.tab:hover{transform:translateY(-2px)}
-.tab.active{box-shadow:0 12px 30px rgba(79,124,255,.25)}
-.category-section{animation:sectionReveal .55s var(--ease) both}
-@keyframes sectionReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.card{
-  position:relative;overflow:hidden;
-  box-shadow:0 18px 50px rgba(0,0,0,.14),inset 0 1px rgba(255,255,255,.035);
-  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s;
-}
-.card:before{
-  content:"";position:absolute;left:18px;right:18px;top:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
-  opacity:0;transition:opacity .35s;
-}
-.card:hover{transform:translateY(-8px);border-color:rgba(120,150,255,.22);box-shadow:0 28px 75px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.07)}
-.card:hover:before{opacity:1}
-.card-top{transition:transform .4s var(--ease)}
-.card:hover .card-top{transform:translateX(3px)}
-.preview{box-shadow:inset 0 1px rgba(255,255,255,.12);transition:transform .45s var(--ease),filter .45s}
-.card:hover .preview{transform:scale(1.012);filter:saturate(1.05)}
-.action{transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
-.action:hover{box-shadow:0 10px 25px rgba(0,0,0,.16)}
-.action.primary{box-shadow:0 8px 25px rgba(33,213,139,.13)}
-.detail{box-shadow:0 30px 90px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.05)}
+.card{position:relative;overflow:hidden;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.card:hover{transform:translateY(-8px)}
 .detail-banner{box-shadow:inset 0 1px rgba(255,255,255,.12)}
-.back{transition:transform .3s var(--ease),background .3s}
-.back:hover{transform:translateX(-3px)}
-.download{transition:transform .35s var(--ease),box-shadow .35s var(--ease),filter .35s}
-.download:hover{filter:brightness(1.06)}
-.search{transition:border-color .3s,box-shadow .3s,transform .3s}
-.search:focus-within{border-color:rgba(79,124,255,.45);box-shadow:0 0 0 4px rgba(79,124,255,.08);transform:translateY(-1px)}
-.footer{margin-top:60px}
-@media(max-width:780px){
-  .hero{padding-top:30px}
-  .tabs{top:64px}
-  .card:hover{transform:translateY(-4px)}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  body:before,.hero-main:before,.hero-main:after{animation:none!important}
-}
-
+.search:focus-within{border-color:rgba(79,124,255,.45);box-shadow:0 0 0 4px rgba(79,124,255,.08)}
+@media(max-width:780px){.tabs{top:64px}}
 
 .scroll-progress{position:fixed;left:0;top:0;height:3px;width:0;z-index:10000;background:linear-gradient(90deg,#4f7cff,#33d6ff,#8a5cff);box-shadow:0 0 12px rgba(79,124,255,.5);transition:width .08s linear}
 
-
-/* ===== PREMIUM REQUEST CENTER ===== */
-.request-section{padding:42px 0 8px;scroll-margin-top:90px}
-.request-card{
- position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;
- min-height:260px;padding:34px 38px;border:1px solid rgba(255,255,255,.10);border-radius:30px;
- background:radial-gradient(circle at 90% 15%,rgba(51,214,255,.14),transparent 28%),
- radial-gradient(circle at 10% 100%,rgba(138,92,255,.15),transparent 35%),
- linear-gradient(135deg,#0e1832,#111d3c 55%,#151d39);
- box-shadow:0 25px 80px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.08);
-}
-.request-card:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.035) 50%,transparent 75%);transform:translateX(-80%);animation:requestSweep 7s ease-in-out infinite}
-@keyframes requestSweep{0%,55%{transform:translateX(-80%)}75%,100%{transform:translateX(80%)}}
-.request-content{position:relative;z-index:2;max-width:690px}
-.request-badge{display:inline-flex;padding:7px 11px;border-radius:99px;background:rgba(79,124,255,.12);border:1px solid rgba(79,124,255,.2);color:#9bb5ff;font-size:10px;font-weight:950;letter-spacing:1.5px}
-.request-content h2{font-size:clamp(28px,4vw,43px);letter-spacing:-1.5px;margin:16px 0 9px}
-.request-content p{margin:0 0 22px;color:var(--muted);line-height:1.75;font-size:13px;max-width:610px}
-.request-btn{position:relative;display:flex;align-items:center;gap:13px;width:min(390px,100%);padding:14px 16px;border-radius:17px;text-decoration:none;color:#fff;background:linear-gradient(135deg,#138f68,#21d58b,#2de5a0);box-shadow:0 12px 30px rgba(33,213,139,.16);transition:transform .35s var(--ease),box-shadow .35s var(--ease),filter .35s;overflow:hidden}
-.request-btn:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.38) 50%,transparent 75%);transform:translateX(-120%);animation:requestShine 3.2s ease-in-out infinite}
-@keyframes requestShine{0%,45%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}
-.request-btn:hover{transform:translateY(-4px);filter:brightness(1.04);box-shadow:0 18px 40px rgba(33,213,139,.24)}
-.request-icon{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.16);font-size:19px;z-index:1}
-.request-btn b,.request-btn small{display:block;z-index:1}.request-btn b{font-size:13px}.request-btn small{font-size:10px;opacity:.78;margin-top:2px}.request-arrow{margin-left:auto;font-size:21px;font-weight:900;z-index:1}
-.request-orb{position:absolute;right:45px;bottom:-65px;width:205px;height:205px;border-radius:50%;display:grid;place-items:center;font-size:92px;font-weight:1000;color:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.06);box-shadow:inset 0 0 60px rgba(79,124,255,.07);animation:requestFloat 6s ease-in-out infinite alternate}
-@keyframes requestFloat{to{transform:translateY(-15px) rotate(5deg)}}
-.light .request-card{background:linear-gradient(135deg,#fff,#f0f5ff);border-color:#e2e8f5;box-shadow:0 25px 70px rgba(16,24,40,.10)}
-.light .request-content p{color:#667085}
-@media(max-width:650px){.request-card{padding:28px 22px;min-height:0}.request-orb{right:-45px;bottom:-70px;width:170px;height:170px;font-size:75px}.request-content{max-width:100%}}
-
-</style>
-
-<script>
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-
-  const __sunnyNav = performance.getEntriesByType('navigation')[0];
-  const __sunnyBackForward = __sunnyNav && __sunnyNav.type === 'back_forward';
-
-  window.addEventListener('load', () => {
-    if (!__sunnyBackForward && !history.state?.sunnyDetailBack) {
-      window.scrollTo(0, 0);
-    }
-  });
-
-  window.addEventListener('pageshow', (event) => {
-    if (!event.persisted && !__sunnyBackForward && !history.state?.sunnyDetailBack) {
-      window.scrollTo(0, 0);
-    }
-  });
-</script>
-</head>
-<body>
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- PREMIUM OPENING -->
-<div id="intro">
- <div class="intro-glow"></div>
- <div class="intro-logo">
-  <div class="logo-ring">S</div>
-  <h1>SUNNY</h1><p>NOTES • APPS • LINKS</p>
-  <div class="loader-line"><i></i></div>
- </div>
-</div>
-
-<!-- SIDE DRAWER -->
-<div class="scrim" id="scrim" onclick="closeMenu()"></div>
-<aside class="drawer" id="drawer">
- <div class="drawer-head"><div class="drawer-brand"><span>S</span> SUNNY HUB</div><button class="round" onclick="closeMenu()">✕</button></div>
- <button class="active" onclick="showHome();closeMenu()">⌂ <span>Home</span></button>
- <button onclick="jump('apps');closeMenu()">▣ <span>Apps</span></button>
- <button onclick="jump('notes');closeMenu()">▤ <span>Notes</span></button>
- <button onclick="jump('links');closeMenu()">↗ <span>Important Links</span></button>
-  <a class="menu-request-link" href="https://wa.me/917808245695?text=Hi%20Sunny%20Hub%2C%20mujhe%20ek%20PDF%2FNotes%20chahiye." target="_blank" rel="noopener">✦ <span>Request a PDF</span></a>
- <button onclick="toggleTheme();closeMenu()">◐ <span>Dark / Light Mode</span></button>
- <a href="https://wa.me/917808245695" target="_blank" rel="noopener">◉ <span>WhatsApp Support</span></a>
- <div class="drawer-note">Sunny Hub ko mobile-first rakha gaya hai — fast navigation, app details aur direct download access ke saath.</div>
-</aside>
-
-<header>
- <div class="container nav">
-  <a class="brand" href="#" onclick="showHome();return false"><span class="brand-logo">S</span><span>SUNNY<small>NOTES • APPS • LINKS</small></span></a>
-  <div class="nav-actions"><button class="round" onclick="toggleTheme()">◐</button><button class="round" onclick="openMenu()">☰</button></div>
- </div>
-</header>
-
-<main class="container">
-
-<!-- HOME -->
-<section id="homePage" class="page active">
- <section class="hero">
-  <div class="hero-grid">
-   <div class="hero-main">
-    <span class="eyebrow"><i class="live-dot"></i> SUNNY HUB • PREMIUM EDITION</span>
-    <h1>Everything you need.<br>Beautifully organized.</h1>
-    <p>Notes, apps aur important links ko ek clean, fast aur premium mobile experience mein access karo.</p>
-    <div class="hero-actions">
-      <button class="btn primary" onclick="jump('apps')">Explore Apps →</button>
-      <button class="btn glass" onclick="jump('notes')">Open Notes</button>
-      <button type="button" class="btn glass" data-request-pdf onclick="window.open('https://wa.me/917808245695?text=Hi%20Sunny%20Hub%2C%20mujhe%20ek%20PDF%2FNotes%20chahiye.', '_blank')">✦ Request PDF</button>
-    </div>
-   </div>
-   <aside class="hero-side">
-    <div class="profile"><div class="avatar">S</div><div><b>Sunny Hub</b><span>Personal Resource Center</span></div></div>
-    <div class="mini-grid"><div class="mini"><b>04</b><span>Sections</span></div><div class="mini"><b>24/7</b><span>Access</span></div><div class="mini"><b>Fast</b><span>Navigation</span></div><div class="mini"><b>Pro</b><span>Design</span></div></div>
-    <div class="quote">"Simple enough to use. Premium enough to remember."</div>
-   </aside>
-  </div>
- </section>
-
- <div class="toolbar" id="library">
-  <div class="search">⌕ <input id="search" placeholder="Search notes, apps, links..." oninput="filterCards()"></div>
-  <select class="filter hidden" id="filter" onchange="filterCards()"><option value="notes">Notes</option><option value="apps">Apps</option><option value="links">Links</option></select>
- </div>
- <div class="tabs category-tabs">
-  <button class="tab active" onclick="setCat('notes',this)">📘 Notes</button>
-  <button class="tab" onclick="setCat('apps',this)">📱 Apps</button>
-  <button class="tab" onclick="setCat('links',this)">🔗 Links</button>
-</div>
-
- <!-- ============ APPS SECTION ============ -->
- <div class="category-section" data-section="apps">
-  <div class="section-head" id="apps"><div><h2>Apps & Tools</h2><p>Premium detail pages + direct actions</p></div></div>
-  <div class="grid">
-   <article class="card searchable" data-cat="apps" data-title="youtube by sunny youtube premium">
-    <div class="card-top"><div class="app-icon red">▶</div><div><h3>YouTube by Sunny</h3><div class="sub">Video Streaming • Android</div></div></div>
-    <div class="preview pred"><div><div class="small">SUNNY • APP PREVIEW</div><div class="big">YouTube<br>Premium</div><div class="small">v21.31.525 • Premium Unlocked</div></div><div class="play">▶</div></div>
-    <div class="tags"><span class="tag">v21.31.525</span><span class="tag ok">Premium Unlocked</span></div>
-    <p class="desc">Premium-style app details page with version, platform and a direct MediaFire download action.</p>
-    <div class="actions"><button class="action primary" onclick="openDetail('youtube')">Download</button></div>
-   </article>
-
-   <article class="card searchable" data-cat="apps" data-title="capcut by sunny video editor">
-    <div class="card-top"><div class="app-icon orange">✂</div><div><h3>CapCut by Sunny</h3><div class="sub">Video Editor</div></div></div>
-    <div class="preview porange"><div><div class="small">VIDEO EDITOR</div><div class="big">Create.<br>Edit. Share.</div></div><div style="font-size:45px">✂</div></div>
-    <div class="tags"><span class="tag">v11.2</span><span class="tag ok">Free</span></div>
-    <p class="desc">Editing tools, templates aur effects ke liye app details layout.</p>
-    <div class="actions"><button class="action primary" onclick="openDetail('capcut')">Download</button></div>
-   </article>
-
-   <article class="card searchable" data-cat="apps" data-title="remini by sunny ai photo enhancer">
-    <div class="card-top"><div class="app-icon blue">R</div><div><h3>Remini by Sunny</h3><div class="sub">AI Photo Enhancer</div></div></div>
-    <div class="preview pblue"><div><div class="small">AI PHOTO ENHANCER</div><div class="big">Restore.<br>Enhance. HD.</div></div><div style="font-size:42px">✦</div></div>
-    <div class="tags"><span class="tag">AI Photo</span><span class="tag ok">Official</span></div>
-    <p class="desc">Photo enhancement app ke liye dedicated premium detail screen.</p>
-    <div class="actions"><button class="action primary" onclick="openDetail('remini')">Download</button></div>
-   </article>
-  </div>
- </div>
-
- <!-- ============ NOTES SECTION ============ -->
- <div class="category-section" data-section="notes">
-  <div class="section-head" id="notes"><div><h2>Notes Library</h2><p>Class 8 Science • quick revision</p></div></div>
-  <div class="grid">
-
-   <!-- 🔥 DAHAN AUR JWALA — SABSE TOP -->
-   <article class="card searchable" data-cat="notes" data-title="class 8 science chapter 4 दहन और ज्वाला">
-    <div class="card-top"><div class="app-icon orange">🔥</div><div><h3>Class 8 Science — दहन और ज्वाला</h3><div class="sub">Chapter 4 • Full Notes</div></div></div>
-    <div class="preview porange"><div><div class="small">SCIENCE • CHAPTER 4</div><div class="big">दहन<br>और ज्वाला</div></div><div style="font-size:42px">🔥</div></div>
-    <div class="tags"><span class="tag">Chapter 4</span><span class="tag ok">Free</span></div><p class="desc">दहन और ज्वाला — revision friendly notes.</p>
-    <div class="actions"><button class="action primary" onclick="openDetail('dahan')">Download</button></div>
-   </article>
-
-   <article class="card searchable" data-cat="notes" data-title="class 8 science chapter 3 कोयला और पेट्रोलियम">
-    <div class="card-top"><div class="app-icon blue">⛽</div><div><h3>Class 8 Science — कोयला और पेट्रोलियम</h3><div class="sub">Chapter 3 • Full Notes</div></div></div>
-    <div class="preview pblue"><div><div class="small">SCIENCE • CHAPTER 3</div><div class="big">कोयला<br>और पेट्रोलियम</div></div><div style="font-size:42px">⛽</div></div>
-    <div class="tags"><span class="tag">Chapter 3</span><span class="tag ok">Free</span></div><p class="desc">कोयला और पेट्रोलियम — revision friendly notes.</p>
-    <div class="actions"><button class="action primary" onclick="openDetail('ch3coal')">Download</button></div>
-   </article>
-
-   <article class="card searchable" data-cat="notes" data-title="class 8 science chapter 2 सूक्ष्मजीव मित्र एवं शत्रु">
-    <div class="card-top"><div class="app-icon blue">🦠</div><div><h3>Class 8 Science — सूक्ष्मजीव</h3><div class="sub">Chapter 2 • Full Notes</div></div></div>
-    <div class="preview pblue"><div><div class="small">SCIENCE • CHAPTER 2</div><div class="big">मित्र<br>एवं शत्रु</div></div><div style="font-size:42px">🧫</div></div>
-    <div class="tags"><span class="tag">Chapter 2</span><span class="tag ok">Free</span></div><p class="desc">Important topics aur definitions saral Hindi mein.</p>
-    <div class="actions"><button class="action primary" onclick="openDetail('ch2')">Download</button></div>
-   </article>
-
-   <article class="card searchable" data-cat="notes" data-title="class 8 science chapter 3 संश्लेषित रेशे और प्लास्टिक">
-    <div class="card-top"><div class="app-icon blue">🧵</div><div><h3>Class 8 Science — संश्लेषित रेशे और प्लास्टिक</h3><div class="sub">Chapter 3 • Full Notes</div></div></div>
-    <div class="preview pblue"><div><div class="small">SCIENCE • CHAPTER 3</div><div class="big">संश्लेषित<br>रेशे और प्लास्टिक</div></div><div style="font-size:42px">🧵</div></div>
-    <div class="tags"><span class="tag">Chapter 3</span><span class="tag ok">Free</span></div><p class="desc">संश्लेषित रेशे और प्लास्टिक — revision friendly notes.</p>
-    <div class="actions"><button class="action primary" onclick="openDetail('ch3')">Download</button></div>
-   </article>
-
-   <article class="card searchable" data-cat="notes" data-title="the tamarind tree chapter 4">
-    <div class="card-top"><div class="app-icon green">🌳</div><div><h3>The Tamarind Tree</h3><div class="sub">Chapter 4 • Full Notes</div></div></div>
-    <div class="preview pgreen"><div><div class="small">ENGLISH • CHAPTER 4</div><div class="big">The<br>Tamarind Tree</div></div><div style="font-size:42px">🌳</div></div>
-    <div class="tags"><span class="tag">Chapter 4</span><span class="tag ok">Free</span></div><p class="desc">The Tamarind Tree — Chapter 4 notes.</p>
-    <div class="actions"><button class="action primary" onclick="openDetail('tamarind')">Download</button></div>
-   </article>
-
-  </div>
- </div>
-
- <!-- ============ LINKS SECTION ============ -->
- <div class="category-section" data-section="links">
-  <div class="section-head" id="links"><div><h2>Important Links</h2><p>Keep your frequently used portals here</p></div></div>
-  <div class="grid">
-   <article class="card searchable" data-cat="links" data-title="lnmu 2nd semester student login portal">
-    <div class="card-top"><div class="app-icon green">↗</div><div><h3>LNMU 2nd Semester</h3><div class="sub">Student Portal</div></div></div>
-    <div class="tags" style="margin-top:17px"><span class="tag">Official</span><span class="tag ok">Free</span></div>
-    <p class="desc">Student login, result, admit card aur admission status ke liye portal card.</p>
-    <div class="actions"><button class="action primary" onclick="toast('Official link yahan connect kar sakte ho.')">Download</button></div>
-   </article>
-  </div>
- </div>
-
- <!-- ============ REQUEST CENTER ============ -->
- <section class="request-section" id="request">
-  <div class="request-card">
-   <div class="request-content">
-    <span class="request-badge">✦ REQUEST CENTER</span>
-    <h2>Need a PDF or Notes?</h2>
-    <p>Koi particular PDF, chapter notes ya study material chahiye? Request bhejo aur WhatsApp par message karo.</p>
-    <a class="request-btn" href="https://wa.me/917808245695?text=Hi%20Sunny%20Hub%2C%20mujhe%20ek%20PDF%2FNotes%20chahiye." target="_blank" rel="noopener">
-     <span class="request-icon">💬</span>
-     <span><b>Send a Request</b><small>WhatsApp par message karo</small></span>
-     <span class="request-arrow">→</span>
-    </a>
-   </div>
-   <div class="request-orb">?</div>
-  </div>
- </section>
-
- <footer class="footer">© 2026 Sunny Hub • Premium Edition • Built for mobile</footer>
-</section>
-<!-- /HOME PAGE -->
-
-<!-- DETAILS -->
-<section id="youtubePage" class="page">
- <button class="back" onclick="showHome()">← Back to Sunny Hub</button>
- <div class="detail">
-  <div class="detail-banner youtube-banner"><div><span class="eyebrow">SUNNY • APP DETAILS</span><h2>YouTube Premium</h2><p>v21.31.525 • Premium Unlocked • Android</p></div><div class="detail-icon">▶</div></div>
-  <div class="info-grid"><div class="info"><b>Version</b><span>v21.31.525</span></div><div class="info"><b>Status</b><span>Premium Unlocked</span></div><div class="info"><b>Platform</b><span>Android</span></div></div>
-  <p class="detail-text">YouTube app ke liye dedicated Sunny Hub detail screen. Download action directly supplied MediaFire destination ko open karta hai.</p>
-  <div class="download-box"><h3>⬇ Download</h3><p>External MediaFire link. Download se pehle file/source ko verify karein.</p><a class="download" href="https://www.mediafire.com/file/c4x37pyim0rm976/YouTube_Pro_%25281%2529.apk/file" target="_blank" rel="noopener">Download from MediaFire</a></div>
- </div>
-</section>
-
-<section id="capcutPage" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner app-banner"><div><span class="eyebrow">SUNNY • APP DETAILS</span><h2>CapCut by Sunny</h2><p>Video Editor • v11.2</p></div><div class="detail-icon" style="color:#ef4444">✂</div></div><div class="info-grid"><div class="info"><b>Category</b><span>Video Editor</span></div><div class="info"><b>Version</b><span>v11.2</span></div><div class="info"><b>Status</b><span>Link pending</span></div></div><p class="detail-text">Yahan aap CapCut ka official/final download URL add kar sakte ho.</p><div class="download-box"><h3>Download</h3><p>Final link add hone ke baad button active kiya ja sakta hai.</p><button class="download" onclick="toast('CapCut link pending hai.')">Download</button></div></div></section>
-
-<section id="reminiPage" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner youtube-banner" style="background:linear-gradient(135deg,#10245c,#315ee9,#31b5ff)"><div><span class="eyebrow">SUNNY • APP DETAILS</span><h2>Remini by Sunny</h2><p>AI Photo Enhancer</p></div><div class="detail-icon" style="color:#315ee9">R</div></div><div class="info-grid"><div class="info"><b>Category</b><span>AI Photo</span></div><div class="info"><b>Type</b><span>Enhancer</span></div><div class="info"><b>Status</b><span>Download Ready</span></div></div><p class="detail-text">Remini ke liye dedicated app-detail screen. Download button supplied MediaFire destination ko open karta hai.</p><div class="download-box"><h3>⬇ Download</h3><p>External MediaFire link. Download se pehle file/source ko verify karein.</p><a class="download" href="https://www.mediafire.com/file/u25jky9ftjkfmrr/Remini_Pro_v3.7.1382.202523066_-_androforever.com.apk/file" target="_blank" rel="noopener">Download from MediaFire</a></div></div></section>
-
-<section id="tamarindPage" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner app-banner"><div><span class="eyebrow">SUNNY • NOTES</span><h2>The Tamarind Tree</h2><p>English • Chapter 4</p></div><div class="detail-icon" style="color:#059669">🌳</div></div><div class="info-grid"><div class="info"><b>Subject</b><span>English</span></div><div class="info"><b>Chapter</b><span>4</span></div><div class="info"><b>Status</b><span>Notes Added</span></div></div><p class="detail-text">The Tamarind Tree — Chapter 4 notes.</p><div class="download-box"><h3>⬇ Download Notes</h3><p>Chapter 4 ke notes ke liye supplied MediaFire link.</p><a class="download" href="https://www.mediafire.com/file/9m8gpjzob5b636m/Screenshot_20260817-115806_ChatGPT.png/file" target="_blank" rel="noopener">Download Notes</a></div></div></section>
-
-<section id="ch2Page" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner notes-banner"><div><span class="eyebrow">SUNNY • NOTES</span><h2>सूक्ष्मजीव — मित्र एवं शत्रु</h2><p>Class 8 Science • Chapter 2</p></div><div class="detail-icon" style="color:#315ee9">🦠</div></div><div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>2</span></div></div><p class="detail-text">सूक्ष्मजीव — मित्र एवं शत्रु के PDF notes.</p><div class="download-box"><h3>⬇ Download Notes</h3><p>PDF download ke liye supplied MediaFire link.</p><a class="download" href="https://www.mediafire.com/file/wl3j1127jv894qy/Sukshmjeev_Mitra_Notes.pdf/file" target="_blank" rel="noopener">Download PDF</a></div></div></section>
-
-<section id="ch3coalPage" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner notes-banner"><div><span class="eyebrow">SUNNY • NOTES</span><h2>कोयला और पेट्रोलियम</h2><p>Class 8 Science • Chapter 3</p></div><div class="detail-icon" style="color:#315ee9">⛽</div></div><div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>3</span></div></div><p class="detail-text">कोयला और पेट्रोलियम के PDF notes.</p><div class="download-box"><h3>⬇ Download Notes</h3><p>PDF notes ke liye supplied MediaFire link.</p><a class="download" href="https://www.mediafire.com/file/xxlrxv049p6apwy/Koyla_Aur_Petroleum_Notes.pdf/file" target="_blank" rel="noopener">Download PDF</a></div></div></section>
-
-<section id="ch3Page" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner notes-banner"><div><span class="eyebrow">SUNNY • NOTES</span><h2>संश्लेषित रेशे और प्लास्टिक</h2><p>Class 8 Science • Chapter 3</p></div><div class="detail-icon" style="color:#315ee9">🧵</div></div><div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>3</span></div></div><p class="detail-text">संश्लेषित रेशे और प्लास्टिक के PDF notes.</p><div class="download-box"><h3>⬇ Download Notes</h3><p>PDF download ke liye supplied MediaFire link.</p><a class="download" href="https://www.mediafire.com/file/opmq5d6vpvmaaxl/Sanshleshit_Reshe_Aur_Plastic_Notes.pdf/file" target="_blank" rel="noopener">Download PDF</a></div></div></section>
-
-<!-- 🔥 DAHAN AUR JWALA DETAIL PAGE -->
-<section id="dahanPage" class="page"><button class="back" onclick="showHome()">← Back</button><div class="detail"><div class="detail-banner notes-banner" style="background:linear-gradient(135deg,#6b2d00,#e85d04,#ffb703)"><div><span class="eyebrow">SUNNY • NOTES</span><h2>दहन और ज्वाला</h2><p>Class 8 Science • Chapter 4</p></div><div class="detail-icon" style="color:#e85d04">🔥</div></div><div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>4</span></div></div><p class="detail-text">दहन और ज्वाला के PDF notes.</p><div class="download-box"><h3>⬇ Download Notes</h3><p>PDF download ke liye supplied MediaFire link.</p><a class="download" href="https://www.mediafire.com/file/7uzyqehwugpdtsx/Dahan_Aur_Jwala_Notes.pdf/file" target="_blank" rel="noopener">Download PDF</a></div></div></section>
-
-</main>
-<div class="toast" id="toast"></div>
-
-<script>
-const intro=document.getElementById('intro');
-window.addEventListener('load',()=>{setTimeout(()=>intro.classList.add('hide'),1600);const t=document.querySelector('.tab.active');if(t)setCat('notes',t);else filterCards()});
-function openMenu(){document.getElementById('drawer').classList.add('show');document.getElementById('scrim').classList.add('show')}
-function closeMenu(){document.getElementById('drawer').classList.remove('show');document.getElementById('scrim').classList.remove('show')}
-function toggleTheme(){document.body.classList.toggle('light');localStorage.setItem('sunnyTheme',document.body.classList.contains('light')?'light':'dark')}
-if(localStorage.getItem('sunnyTheme')==='light')document.body.classList.add('light');
-
-const pages=['homePage','youtubePage','capcutPage','reminiPage','tamarindPage','ch2Page','ch3Page','ch3coalPage','dahanPage'];
-const detailMap={youtube:'youtubePage',capcut:'capcutPage',remini:'reminiPage',tamarind:'tamarindPage',ch2:'ch2Page',ch3:'ch3Page',ch3coal:'ch3coalPage',dahan:'dahanPage'};
-function showPage(id,scroll=true){
-  pages.forEach(x=>document.getElementById(x).classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  if(scroll) window.scrollTo({top:0,behavior:'smooth'});
-}
-function showHome(scrollY=0){
-  showPage('homePage',false);
-  requestAnimationFrame(()=>window.scrollTo({top:scrollY,behavior:'instant'}));
-}
-function openDetail(type){
-  const page=detailMap[type];
-  if(!page)return;
-  const currentState={...(history.state||{}),page:'home',scrollY:window.scrollY};
-  history.replaceState(currentState,'',location.pathname+location.search);
-  history.pushState({page:'detail',type,scrollY:window.scrollY},'',location.pathname+location.search+'#'+type);
-  showPage(page,true);
-}
-function jump(id){
-  const y=window.scrollY;
-  history.replaceState({...(history.state||{}),page:'home',scrollY:y},'',location.pathname+location.search);
-  document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
-}
-window.addEventListener('popstate',(e)=>{
-  const state=e.state||{};
-  if(state.page==='detail' && detailMap[state.type]) showPage(detailMap[state.type],true);
-  else showHome(Number(state.scrollY)||0);
-});
-if(!history.state || !history.state.page){
-  history.replaceState({page:'home',scrollY:window.scrollY},'',location.pathname+location.search+location.hash);
-}
-
-function setCat(cat,btn){
- document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
- btn.classList.add('active');
- document.getElementById('filter').value=cat;
- document.querySelectorAll('.category-section').forEach(s=>s.classList.toggle('active',s.dataset.section===cat));
- filterCards();
- window.scrollTo({top:document.querySelector('.category-tabs').getBoundingClientRect().top+window.scrollY-18,behavior:'smooth'});
-}
-function filterCards(){
- const q=(document.getElementById('search').value||'').toLowerCase(),cat=document.getElementById('filter').value;
- document.querySelectorAll('.searchable').forEach(c=>{
-   const match=(c.dataset.title||'').includes(q);
-   const ok=q ? match : c.dataset.cat===cat;
-   c.style.display=ok?'block':'none';
- });
-}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),2600)}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-
-const scrollProgress=document.getElementById('scrollProgress');
-function updateScrollProgress(){
-  const doc=document.documentElement;
-  const max=doc.scrollHeight-doc.clientHeight;
-  scrollProgress.style.width=(max>0?(window.scrollY/max)*100:0)+'%';
-}
-window.addEventListener('scroll',updateScrollProgress,{passive:true});
-window.addEventListener('resize',updateScrollProgress);
-updateScrollProgress();
-
-</script>
-
-<script>
-(function(){
-  const requestUrl = "https://wa.me/917808245695?text=Hi%20Sunny%20Hub%2C%20mujhe%20ek%20PDF%2FNotes%20chahiye.";
-  document.addEventListener("click", function(e){
-    const el = e.target.closest("[data-request-pdf]");
-    if(!el) return;
-    e.preventDefault();
-    window.open(requestUrl, "_blank");
-  });
-})();
-</script>
-
-</body>
-</html>
+/* REQUEST CENTER */
+.request-section{padding:42px 0 8px}
+.request-card{po
