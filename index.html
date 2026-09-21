@@ -651,7 +651,7 @@ header{
 
 <!-- DETAIL PAGES -->
 <section id="dahanPage" class="page">
- <button class="back" onclick="showHome()">← Back</button>
+ <button class="back" onclick="backToClassSelection()">← Back</button>
  <div class="detail">
   <div class="detail-banner notes-banner" style="background:linear-gradient(135deg,#6b2d00,#e85d04,#ffb703)">
    <div style="position:relative"><span class="eyebrow">SUNNY • NOTES</span><h2>दहन और ज्वाला</h2><p>Class 8 Science • Chapter 4</p></div>
@@ -664,7 +664,7 @@ header{
 </section>
 
 <section id="coalPage" class="page">
- <button class="back" onclick="showHome()">← Back</button>
+ <button class="back" onclick="backToClassSelection()">← Back</button>
  <div class="detail">
   <div class="detail-banner notes-banner"><div style="position:relative"><span class="eyebrow">SUNNY • NOTES</span><h2>कोयला और पेट्रोलियम</h2><p>Class 8 Science • Chapter 3</p></div><div class="detail-icon" style="color:#315ee9">⛽</div></div>
   <div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>3</span></div></div>
@@ -674,7 +674,7 @@ header{
 </section>
 
 <section id="microbePage" class="page">
- <button class="back" onclick="showHome()">← Back</button>
+ <button class="back" onclick="backToClassSelection()">← Back</button>
  <div class="detail">
   <div class="detail-banner notes-banner"><div style="position:relative"><span class="eyebrow">SUNNY • NOTES</span><h2>सूक्ष्मजीव — मित्र एवं शत्रु</h2><p>Class 8 Science • Chapter 2</p></div><div class="detail-icon" style="color:#315ee9">🦠</div></div>
   <div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>2</span></div></div>
@@ -684,7 +684,7 @@ header{
 </section>
 
 <section id="fibrePage" class="page">
- <button class="back" onclick="showHome()">← Back</button>
+ <button class="back" onclick="backToClassSelection()">← Back</button>
  <div class="detail">
   <div class="detail-banner notes-banner"><div style="position:relative"><span class="eyebrow">SUNNY • NOTES</span><h2>संश्लेषित रेशे और प्लास्टिक</h2><p>Class 8 Science • Chapter 3</p></div><div class="detail-icon" style="color:#315ee9">🧵</div></div>
   <div class="info-grid"><div class="info"><b>Class</b><span>8</span></div><div class="info"><b>Subject</b><span>Science</span></div><div class="info"><b>Chapter</b><span>3</span></div></div>
@@ -694,7 +694,7 @@ header{
 </section>
 
 <section id="tamarindPage" class="page">
- <button class="back" onclick="showHome()">← Back</button>
+ <button class="back" onclick="backToClassSelection()">← Back</button>
  <div class="detail">
   <div class="detail-banner app-banner"><div style="position:relative"><span class="eyebrow">SUNNY • NOTES</span><h2>The Tamarind Tree</h2><p>English • Chapter 4</p></div><div class="detail-icon" style="color:#059669">🌳</div></div>
   <div class="info-grid"><div class="info"><b>Subject</b><span>English</span></div><div class="info"><b>Chapter</b><span>4</span></div><div class="info"><b>Class</b><span>8</span></div></div>
@@ -826,6 +826,17 @@ function showHome(scrollY){
   showPage('homePage', false);
   var y = (typeof scrollY === 'number') ? scrollY : 0;
   requestAnimationFrame(function(){
+    window.scrollTo({top:y, behavior:'auto'});
+  });
+}
+
+function backToClassSelection(){
+  showPage('homePage', false);
+  switchTab('notes');
+  backToClasses();
+  requestAnimationFrame(function(){
+    var sel = document.getElementById('notesClassSelect');
+    var y = sel ? sel.getBoundingClientRect().top + window.pageYOffset - 80 : 0;
     window.scrollTo({top:y, behavior:'auto'});
   });
 }
