@@ -911,6 +911,7 @@ setTimeout(function(){
     home.classList.add('active');
   }
 }, 3000);
+history.replaceState({page:'home'}, '', location.pathname + location.search);
 </script>
 
 </body>
