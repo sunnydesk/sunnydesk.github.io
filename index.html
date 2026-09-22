@@ -438,7 +438,7 @@ header{
      </div>
     </article>
 
-    <!-- CHAPTER 3: SUKSHMJEEV MITRA AUR SHATRU (NEWLY ADDED) -->
+    <!-- CHAPTER 3: SUKSHMJEEV MITRA AUR SHATRU -->
     <article class="card">
      <div class="card-top"><div class="app-icon purple">🦠</div><div><h3>सूक्ष्मजीवः मित्र और शत्रु</h3><div class="sub">Science • Chapter 3</div></div></div>
      <div class="preview ppurple"><div><div class="small">SCIENCE • CHAPTER 3</div><div class="big">सूक्ष्मजीवः<br>मित्र और शत्रु</div></div><div style="font-size:38px">🔬</div></div>
@@ -477,4 +477,133 @@ header{
    <article class="card">
     <div class="card-top"><div class="app-icon blue">↗</div><div><h3>LNMU Portal</h3><div class="sub">University updates</div></div></div>
     <p class="desc" style="margin-top:10px">Result, admit card aur status ke liye official link.</p>
-    <div class="actions"><button class="action primary" onclick="toast('Link update
+    <div class="actions"><button class="action primary" onclick="toast('Link update ho raha hai')">Open Portal</button></div>
+   </article>
+  </div>
+ </div>
+
+ <footer class="footer">© 2026 Sunny • Personal Resource Center</footer>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ========== RELIABLE INTRO LOADER (NO FREEZE) ========== */
+function dismissIntro(){
+  var intro = document.getElementById('intro');
+  if(intro && !intro.classList.contains('hide')){
+    intro.classList.add('hide');
+    setTimeout(function(){
+      if(intro && intro.parentNode) intro.parentNode.removeChild(intro);
+    }, 550);
+  }
+}
+
+// 1. Agar window load ho jaye
+window.addEventListener('load', function(){
+  setTimeout(dismissIntro, 1200);
+});
+
+// 2. Fail-safe timer (Kisi bhi haal me 1.8s me hat jayega)
+setTimeout(dismissIntro, 1800);
+
+/* ========== DRAWER ========== */
+var isDrawerOpen = false;
+function openMenu(){
+  document.getElementById('drawer').classList.add('show');
+  document.getElementById('scrim').classList.add('show');
+  isDrawerOpen = true;
+  history.pushState({view:'menu'}, '', '#menu');
+}
+function closeMenu(){
+  document.getElementById('drawer').classList.remove('show');
+  document.getElementById('scrim').classList.remove('show');
+  isDrawerOpen = false;
+}
+
+/* ========== TABS ========== */
+function switchTab(cat){
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.classList.toggle('active', t.dataset.tab === cat);
+  });
+  document.querySelectorAll('.category-section').forEach(function(s){
+    s.classList.toggle('active', s.dataset.section === cat);
+  });
+  if(cat === 'notes') renderClassView(false);
+  var tabsBar = document.getElementById('tabsBar');
+  if(tabsBar){
+    var y = tabsBar.getBoundingClientRect().top + window.pageYOffset - 75;
+    window.scrollTo({top:y, behavior:'smooth'});
+  }
+}
+
+/* ========== CLASS VIEW WITH BROWSER/PHONE BACK FIX ========== */
+function renderClassView(isChapterOpen){
+  var sel = document.getElementById('notesClassSelect');
+  var ch = document.getElementById('notesChapters');
+  if(isChapterOpen){
+    if(sel) sel.classList.add('hidden');
+    if(ch) ch.classList.remove('hidden');
+  } else {
+    if(sel) sel.classList.remove('hidden');
+    if(ch) ch.classList.add('hidden');
+  }
+}
+
+function showHome(){
+  renderClassView(false);
+  switchTab('notes');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function pickClass(n){
+  if(n === 8){
+    renderClassView(true);
+    history.pushState({view:'class', classNum:8}, '', '#class-8');
+    var el = document.getElementById('notesChapters');
+    if(el){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - 85;
+      window.scrollTo({top:y, behavior:'smooth'});
+    }
+  } else {
+    toast('Class ' + n + ' jald available hoga! 🔜');
+  }
+}
+
+function backToClasses(){
+  if(location.hash === '#class-8'){
+    history.back();
+  } else {
+    renderClassView(false);
+  }
+}
+
+/* MOBILE HARDWARE / GESTURE BACK BUTTON LISTENER */
+window.addEventListener('popstate', function(e){
+  if(isDrawerOpen){
+    closeMenu();
+    return;
+  }
+  var state = e.state || {};
+  if(state.view === 'class' && state.classNum === 8){
+    renderClassView(true);
+  } else {
+    renderClassView(false);
+  }
+});
+
+// Base state setup
+history.replaceState({view:'home'}, '', location.pathname + location.search);
+
+/* ========== TOAST ========== */
+function toast(msg){
+  var t = document.getElementById('toast');
+  if(!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2500);
+}
+</script>
+
+</body>
+</html>
