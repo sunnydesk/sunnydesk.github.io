@@ -30,6 +30,28 @@ a{text-decoration:none;color:inherit}
 .hidden{display:none!important}
 .container{width:min(680px,100%);margin:auto;padding:0 16px}
 
+/* ========== INTRO LOADER ANIMATION ========== */
+#intro{
+ position:fixed;inset:0;z-index:99999;
+ background:#0c1022;
+ display:grid;place-items:center;opacity:1;visibility:visible;
+ transition:opacity .5s ease, visibility .5s ease;
+}
+#intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro-logo{text-align:center;animation:pop .8s cubic-bezier(.16,1,.3,1) both}
+.logo-ring{
+ width:96px;height:96px;margin:auto;border-radius:28px;
+ display:grid;place-items:center;font-size:44px;font-weight:950;
+ background:var(--purple-grad);color:#fff;
+ box-shadow:0 20px 60px rgba(124,58,237,.5);
+}
+.intro-logo h1{font-size:26px;letter-spacing:4px;margin:20px 0 4px;font-weight:950;color:#fff}
+.intro-logo p{color:#94a3b8;font-size:11px;letter-spacing:2.5px;font-weight:800}
+.loader-line{width:160px;height:3px;background:rgba(255,255,255,.1);border-radius:99px;margin:24px auto 0;overflow:hidden}
+.loader-line i{display:block;width:45%;height:100%;background:linear-gradient(90deg,#818cf8,#c084fc);border-radius:99px;animation:load 1.4s ease-in-out infinite}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@keyframes load{0%{transform:translateX(-120%)}100%{transform:translateX(380%)}}
+
 /* HEADER */
 header{
  position:sticky;top:0;z-index:100;
@@ -79,7 +101,7 @@ header{
 /* HERO SECTION */
 .hero{padding:18px 0 10px}
 
-/* 1. EVERYTHING YOU NEED CARD (PURPLE GRADIENT FROM SCREENSHOT) */
+/* 1. EVERYTHING YOU NEED CARD */
 .everything-card{
  border-radius:30px;
  background:var(--purple-grad);
@@ -128,7 +150,7 @@ header{
 }
 .btn-trans:hover{background:rgba(255,255,255,.28)}
 
-/* 2. SUNNY HUB PROFILE CARD (CLEAN WHITE SURFACE STARK STYLE) */
+/* 2. SUNNY HUB PROFILE CARD */
 .hub-card{
  background:var(--surface);
  border:1px solid var(--line);
@@ -270,6 +292,16 @@ header{
 </head>
 <body>
 
+<!-- ========== INTRO LOADER ANIMATION ========== -->
+<div id="intro">
+ <div class="intro-logo">
+  <div class="logo-ring">S</div>
+  <h1>SUNNY</h1>
+  <p>STUDY HUB • PREMIUM</p>
+  <div class="loader-line"><i></i></div>
+ </div>
+</div>
+
 <!-- DRAWER -->
 <div class="scrim" id="scrim" onclick="closeMenu()"></div>
 <aside class="drawer" id="drawer">
@@ -302,7 +334,7 @@ header{
 <main class="container">
 
  <section class="hero">
-  <!-- TOP CARD: EVERYTHING YOU NEED (STARK VIOLET GRADIENT) -->
+  <!-- TOP CARD: EVERYTHING YOU NEED (PURPLE GRADIENT) -->
   <div class="everything-card">
    <span class="pill-badge"><i></i> SUNNY HUB • PREMIUM</span>
    <h1>Everything<br>you need.</h1>
@@ -313,7 +345,7 @@ header{
    </div>
   </div>
 
-  <!-- SECOND CARD: SUNNY HUB PROFILE / STATS (STARK SURFACE CARD) -->
+  <!-- SECOND CARD: SUNNY HUB PROFILE / STATS -->
   <div class="hub-card">
    <div class="hub-header">
     <div class="hub-avatar">S</div>
@@ -438,14 +470,34 @@ header{
 <div class="toast" id="toast"></div>
 
 <script>
+/* ========== INTRO LOADER SCRIPT ========== */
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    var intro = document.getElementById('intro');
+    if(intro){
+      intro.classList.add('hide');
+      setTimeout(function(){
+        if(intro && intro.parentNode) intro.parentNode.removeChild(intro);
+      }, 550);
+    }
+  }, 1400);
+});
+
+/* ========== DRAWER ========== */
+var isDrawerOpen = false;
 function openMenu(){
   document.getElementById('drawer').classList.add('show');
   document.getElementById('scrim').classList.add('show');
+  isDrawerOpen = true;
+  history.pushState({view:'menu'}, '', '#menu');
 }
 function closeMenu(){
   document.getElementById('drawer').classList.remove('show');
   document.getElementById('scrim').classList.remove('show');
+  isDrawerOpen = false;
 }
+
+/* ========== TABS ========== */
 function switchTab(cat){
   document.querySelectorAll('.tab').forEach(function(t){
     t.classList.toggle('active', t.dataset.tab === cat);
@@ -460,6 +512,8 @@ function switchTab(cat){
     window.scrollTo({top:y, behavior:'smooth'});
   }
 }
+
+/* ========== CLASS VIEW WITH BROWSER/PHONE BACK FIX ========== */
 function renderClassView(isChapterOpen){
   var sel = document.getElementById('notesClassSelect');
   var ch = document.getElementById('notesChapters');
@@ -471,21 +525,59 @@ function renderClassView(isChapterOpen){
     if(ch) ch.classList.add('hidden');
   }
 }
+
 function showHome(){
   renderClassView(false);
   switchTab('notes');
   window.scrollTo({top:0, behavior:'smooth'});
 }
+
 function pickClass(n){
   if(n === 8){
     renderClassView(true);
+    // Phone back button fix: add state to browser history
+    history.pushState({view:'class', classNum:8}, '', '#class-8');
+    var el = document.getElementById('notesChapters');
+    if(el){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - 85;
+      window.scrollTo({top:y, behavior:'smooth'});
+    }
   } else {
     toast('Class ' + n + ' jald available hoga! 🔜');
   }
 }
+
 function backToClasses(){
-  renderClassView(false);
+  // Trigger system/browser back
+  if(location.hash === '#class-8'){
+    history.back();
+  } else {
+    renderClassView(false);
+  }
 }
+
+/* MOBILE HARDWARE / GESTURE BACK BUTTON LISTENER */
+window.addEventListener('popstate', function(e){
+  // 1. Agar drawer khula hai aur back dabaya
+  if(isDrawerOpen){
+    closeMenu();
+    return;
+  }
+
+  // 2. Agar Class 8 ke chapters mein hai aur back dabaya
+  var state = e.state || {};
+  if(state.view === 'class' && state.classNum === 8){
+    renderClassView(true);
+  } else {
+    // Default home view par le aao
+    renderClassView(false);
+  }
+});
+
+// Initial history base setup
+history.replaceState({view:'home'}, '', location.pathname + location.search);
+
+/* ========== TOAST ========== */
 function toast(msg){
   var t = document.getElementById('toast');
   if(!t) return;
