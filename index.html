@@ -249,6 +249,7 @@ header{
 }
 .orange{background:linear-gradient(135deg,#f59e0b,#ea580c);color:#fff}
 .blue{background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff}
+.purple{background:var(--purple-grad);color:#fff}
 .card h3{margin:0;font-size:16px;font-weight:900;color:#0f172a}
 .sub{font-size:11px;color:var(--muted);margin-top:2px}
 .preview{
@@ -257,6 +258,7 @@ header{
 }
 .porange{background:linear-gradient(135deg,#ea580c,#f97316,#fbbf24)}
 .pblue{background:linear-gradient(135deg,#1e3a8a,#3b82f6,#60a5fa)}
+.ppurple{background:linear-gradient(135deg,#581c87,#7c3aed,#a855f7)}
 .preview .small{font-size:9px;font-weight:900;letter-spacing:1px;opacity:.9}
 .preview .big{font-size:22px;font-weight:950;margin-top:4px}
 .tags{display:flex;gap:6px;margin-bottom:10px}
@@ -334,7 +336,7 @@ header{
 <main class="container">
 
  <section class="hero">
-  <!-- TOP CARD: EVERYTHING YOU NEED (PURPLE GRADIENT) -->
+  <!-- TOP CARD: EVERYTHING YOU NEED -->
   <div class="everything-card">
    <span class="pill-badge"><i></i> SUNNY HUB • PREMIUM</span>
    <h1>Everything<br>you need.</h1>
@@ -409,8 +411,10 @@ header{
 
   <div id="notesChapters" class="hidden">
    <button class="back" onclick="backToClasses()">← Change Class</button>
-   <div class="section-head"><h2>Class 8 — Notes</h2><p>Chapter PDF download karein ya video dekhein</p></div>
+   <div class="section-head"><h2>Class 8 — Notes</h2><p>Chapter PDF download karein ya online padhein</p></div>
    <div class="grid">
+
+    <!-- CHAPTER 1: DAHAN AUR JWALA -->
     <article class="card">
      <div class="card-top"><div class="app-icon orange">🔥</div><div><h3>दहन और ज्वाला</h3><div class="sub">Science • Chapter 4</div></div></div>
      <div class="preview porange"><div><div class="small">SCIENCE • CHAPTER 4</div><div class="big">दहन<br>और ज्वाला</div></div><div style="font-size:38px">🔥</div></div>
@@ -422,6 +426,7 @@ header{
      </div>
     </article>
 
+    <!-- CHAPTER 2: KOYLA AUR PETROLEUM -->
     <article class="card">
      <div class="card-top"><div class="app-icon blue">⛽</div><div><h3>कोयला और पेट्रोलियम</h3><div class="sub">Science • Chapter 3</div></div></div>
      <div class="preview pblue"><div><div class="small">SCIENCE • CHAPTER 3</div><div class="big">कोयला<br>और पेट्रोलियम</div></div><div style="font-size:38px">⛽</div></div>
@@ -432,6 +437,19 @@ header{
       <a class="btn-view" href="koyla-aur-petroleum.pdf" target="_blank" rel="noopener">👁 View Notes</a>
      </div>
     </article>
+
+    <!-- CHAPTER 3: SUKSHMJEEV MITRA AUR SHATRU (NEWLY ADDED) -->
+    <article class="card">
+     <div class="card-top"><div class="app-icon purple">🦠</div><div><h3>सूक्ष्मजीवः मित्र और शत्रु</h3><div class="sub">Science • Chapter 3</div></div></div>
+     <div class="preview ppurple"><div><div class="small">SCIENCE • CHAPTER 3</div><div class="big">सूक्ष्मजीवः<br>मित्र और शत्रु</div></div><div style="font-size:38px">🔬</div></div>
+     <div class="tags"><span class="tag">Chapter 3</span><span class="tag ok">Free</span></div>
+     <p class="desc">जीवाणु, किण्वन, प्रतिजैविक, वैक्सीन, हानिकारक सूक्ष्मजीव और नाइट्रोजन चक्र नोट्स।</p>
+     <div class="actions">
+      <a class="action primary" href="Sukshmjeev_Mitra_Notes.pdf" download="Sukshmjeev_Mitra_Notes.pdf">⬇ Download PDF</a>
+      <a class="btn-view" href="Sukshmjeev_Mitra_Notes.pdf" target="_blank" rel="noopener">👁 View Notes</a>
+     </div>
+    </article>
+
    </div>
   </div>
  </div>
@@ -459,133 +477,4 @@ header{
    <article class="card">
     <div class="card-top"><div class="app-icon blue">↗</div><div><h3>LNMU Portal</h3><div class="sub">University updates</div></div></div>
     <p class="desc" style="margin-top:10px">Result, admit card aur status ke liye official link.</p>
-    <div class="actions"><button class="action primary" onclick="toast('Link update ho raha hai')">Open Portal</button></div>
-   </article>
-  </div>
- </div>
-
- <footer class="footer">© 2026 Sunny • Personal Resource Center</footer>
-</main>
-
-<div class="toast" id="toast"></div>
-
-<script>
-/* ========== INTRO LOADER SCRIPT ========== */
-window.addEventListener('load', function(){
-  setTimeout(function(){
-    var intro = document.getElementById('intro');
-    if(intro){
-      intro.classList.add('hide');
-      setTimeout(function(){
-        if(intro && intro.parentNode) intro.parentNode.removeChild(intro);
-      }, 550);
-    }
-  }, 1400);
-});
-
-/* ========== DRAWER ========== */
-var isDrawerOpen = false;
-function openMenu(){
-  document.getElementById('drawer').classList.add('show');
-  document.getElementById('scrim').classList.add('show');
-  isDrawerOpen = true;
-  history.pushState({view:'menu'}, '', '#menu');
-}
-function closeMenu(){
-  document.getElementById('drawer').classList.remove('show');
-  document.getElementById('scrim').classList.remove('show');
-  isDrawerOpen = false;
-}
-
-/* ========== TABS ========== */
-function switchTab(cat){
-  document.querySelectorAll('.tab').forEach(function(t){
-    t.classList.toggle('active', t.dataset.tab === cat);
-  });
-  document.querySelectorAll('.category-section').forEach(function(s){
-    s.classList.toggle('active', s.dataset.section === cat);
-  });
-  if(cat === 'notes') renderClassView(false);
-  var tabsBar = document.getElementById('tabsBar');
-  if(tabsBar){
-    var y = tabsBar.getBoundingClientRect().top + window.pageYOffset - 75;
-    window.scrollTo({top:y, behavior:'smooth'});
-  }
-}
-
-/* ========== CLASS VIEW WITH BROWSER/PHONE BACK FIX ========== */
-function renderClassView(isChapterOpen){
-  var sel = document.getElementById('notesClassSelect');
-  var ch = document.getElementById('notesChapters');
-  if(isChapterOpen){
-    if(sel) sel.classList.add('hidden');
-    if(ch) ch.classList.remove('hidden');
-  } else {
-    if(sel) sel.classList.remove('hidden');
-    if(ch) ch.classList.add('hidden');
-  }
-}
-
-function showHome(){
-  renderClassView(false);
-  switchTab('notes');
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-function pickClass(n){
-  if(n === 8){
-    renderClassView(true);
-    // Phone back button fix: add state to browser history
-    history.pushState({view:'class', classNum:8}, '', '#class-8');
-    var el = document.getElementById('notesChapters');
-    if(el){
-      var y = el.getBoundingClientRect().top + window.pageYOffset - 85;
-      window.scrollTo({top:y, behavior:'smooth'});
-    }
-  } else {
-    toast('Class ' + n + ' jald available hoga! 🔜');
-  }
-}
-
-function backToClasses(){
-  // Trigger system/browser back
-  if(location.hash === '#class-8'){
-    history.back();
-  } else {
-    renderClassView(false);
-  }
-}
-
-/* MOBILE HARDWARE / GESTURE BACK BUTTON LISTENER */
-window.addEventListener('popstate', function(e){
-  // 1. Agar drawer khula hai aur back dabaya
-  if(isDrawerOpen){
-    closeMenu();
-    return;
-  }
-
-  // 2. Agar Class 8 ke chapters mein hai aur back dabaya
-  var state = e.state || {};
-  if(state.view === 'class' && state.classNum === 8){
-    renderClassView(true);
-  } else {
-    // Default home view par le aao
-    renderClassView(false);
-  }
-});
-
-// Initial history base setup
-history.replaceState({view:'home'}, '', location.pathname + location.search);
-
-/* ========== TOAST ========== */
-function toast(msg){
-  var t = document.getElementById('toast');
-  if(!t) return;
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 2500);
-}
-</script>
-
-</body>
-</html>
+    <div class="actions"><button class="action primary" onclick="toast('Link update
